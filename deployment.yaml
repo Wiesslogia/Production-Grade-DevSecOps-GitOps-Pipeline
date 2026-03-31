@@ -1,0 +1,24 @@
+#Defines which Kubernetes API
+apiVersion: app/v1
+
+kind: Deployment        #Deployment = manager that runs your app and keeps it alive
+
+metadata:               #This is how Kubernetes identifies it
+  name: gitos-app       #This name will become Label of the Docker object 
+
+specs:                                # actual instruction starts here
+  replicas: 2                         # define number of copies
+  selector:                           # this connet deployment to pods 
+    matchLabels:                      # matches all the lable below to apply this deployment to pod
+      app: gitops-app                 # label of existing container
+  template:                           # pod template 
+    metadata:                         # container created under this will have same label as given below
+      labels:
+        app: gitops-app
+    spec:                             # define container details
+      containers:
+      - name: gitops-app              # container name
+        image: gitops-app             # docker img created
+        imagePullPolicy: Never        # use local image
+        ports:                        # port to run app
+        - containerPort: 3000

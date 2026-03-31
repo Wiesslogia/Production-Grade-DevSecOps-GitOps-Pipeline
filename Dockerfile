@@ -1,14 +1,25 @@
-FROM node:18        # Use the official Node.js 18 image as the base image
+# Use the official Node.js 18 image as the base image
+FROM node:18        
 
 
-WORKDIR /app       # Set the working directory in the container to /app
+# Set the working directory in the container to /app
+WORKDIR /app       
 
 
-COPY . .          # Copy the contents of the current directory to the working directory in the container
+# Copy the contents of the current directory to the working directory in the container
+COPY . .          
 
 
-RUN npm install    # Install the dependencies specified in package.json
+# Install the dependencies specified in package.json
+RUN npm install    
 
-EXPOSE 3000      # Expose port 3000 for the application to listen on
+# Expose port 3000 for the application to listen on
+EXPOSE 3000      
 
-CMD ["npm", "start"] # Start the application using the npm start command
+# Start the application using the npm start command
+CMD ["npm", "app.js"] 
+
+
+
+# docker build -t gitops-app .   ==> to build image
+# docker run -p 3000:3000 gitops-app  ==> to create and run container 

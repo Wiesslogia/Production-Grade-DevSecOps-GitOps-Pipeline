@@ -1,0 +1,14 @@
+# Service make app reachable
+
+apiVersion: v1            # kubernetes API
+kind: Service             
+metadata:                 # nameing the service
+  name: gitops-service
+spec:                     
+  type: NodePort          # ClusterIP/NodePort/LoadBalancer
+  selector:               # send traffic to pods with this label 
+    app: gitops-app
+  ports:
+    - port: 3000          # service 
+      targetPort: 3000    # container
+      nodePort: 30007     # external
