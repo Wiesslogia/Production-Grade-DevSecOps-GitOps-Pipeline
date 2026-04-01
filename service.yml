@@ -10,5 +10,5 @@ spec:
     app: gitops-app
   ports:
     - port: 3000          # service 
-      targetPort: 3000    # container
+      targetPort: 8080    # container
       nodePort: 30007     # external

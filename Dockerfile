@@ -11,13 +11,13 @@ COPY . .
 
 
 # Install the dependencies specified in package.json
-RUN npm install    
+RUN npm install
 
 # Expose port 3000 for the application to listen on
-EXPOSE 3000      
+EXPOSE 8080
 
 # Start the application using the npm start command
-CMD ["npm", "app.js"] 
+CMD ["node", "app.js"] 
 
 
 
