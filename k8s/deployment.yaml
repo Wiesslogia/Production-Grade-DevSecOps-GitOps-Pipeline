@@ -1,12 +1,12 @@
 #Defines which Kubernetes API
 apiVersion: apps/v1
 
-kind: Deployment        #Deployment = manager that runs your app and keeps it alive
+kind: Deployment          #Deployment = manager that runs your app and keeps it alive
 
-metadata:               #This is how Kubernetes identifies it
-  name: gitops-app       #This name will become Label of the Docker object 
+metadata:                 #This is how Kubernetes identifies it
+  name: gitops-app        #This name will become Label of the Docker object 
 
-spec:                                # actual instruction starts here
+spec:                                 # actual instruction starts here
   replicas: 2                         # define number of copies
   selector:                           # this connet deployment to pods 
     matchLabels:                      # matches all the lable below to apply this deployment to pod
@@ -18,7 +18,7 @@ spec:                                # actual instruction starts here
     spec:                             # define container details
       containers:
       - name: gitops-app              # container name
-        image: gitops-app:latest           # docker img created
-        imagePullPolicy: Never        # use local image
+        image: wiesslogia/gitops-app:latest           # docker img created
+        imagePullPolicy: Always       # use local image
         ports:                        # port to run app
         - containerPort: 8080
