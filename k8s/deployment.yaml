@@ -7,7 +7,7 @@ metadata:                 #This is how Kubernetes identifies it
   name: gitops-app        #This name will become Label of the Docker object 
 
 spec:                                 # actual instruction starts here
-  replicas: 2                         # define number of copies
+  replicas: 4                         # define number of copies
   selector:                           # this connet deployment to pods 
     matchLabels:                      # matches all the lable below to apply this deployment to pod
       app: gitops-app                 # label of existing container
