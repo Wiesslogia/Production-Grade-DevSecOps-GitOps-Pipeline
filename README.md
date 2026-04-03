@@ -45,13 +45,13 @@ Grafana
 
 ## ⚙️ Features
 
-✅ Automated CI/CD Pipeline
-✅ GitOps-based deployment using ArgoCD
-✅ Dockerized application
-✅ Kubernetes deployment with scaling
-✅ Real-time monitoring with Prometheus
-✅ Grafana dashboards for visualization
-✅ Custom metrics using Prometheus client
+- ✅ Automated CI/CD Pipeline 
+- ✅ GitOps-based deployment using ArgoCD
+- ✅ Dockerized application
+- ✅ Kubernetes deployment with scaling
+- ✅ Real-time monitoring with Prometheus
+- ✅ Grafana dashboards for visualization
+- ✅ Custom metrics using Prometheus client
 
 ---
 
@@ -180,8 +180,8 @@ Observe changes in Grafana dashboards.
 
 ## 📌 Author
 
-Your Name
-GitHub: https://github.com/your-username
+Gotam Kumar Prajapati
+GitHub: https://github.com/wiesslogia
 
 ---
 
