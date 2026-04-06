@@ -4,6 +4,8 @@ apiVersion: v1            # kubernetes API
 kind: Service             
 metadata:                 # nameing the service
   name: gitops-service
+  labels:
+    app: gitops-app
 spec:                     
   type: NodePort          # ClusterIP/NodePort/LoadBalancer
   selector:               # send traffic to pods with this label 
@@ -12,3 +14,4 @@ spec:
     - port: 3000          # service 
       targetPort: 8080    # container
       nodePort: 30007     # external
+      name: http

@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1   # which sysrem *
+kind: PrometheusRule        # tell kubernetes that it is rules
+metadata:
+  name: custom-alerts       # unique name
+  labels:                   # lavel to find rules
+    release: monitoring
+spec:  
+  groups:                     # organizes alert into groups/folder to store alerts
+  - name: example-alert      # folder name 
+    rules:
+    - alert: HighPodCpu
+      expr: sum(rate(container_cpu_usage_seconds_total[1m]))>0.5    #when alert shoud trigger
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High CPU usage detected"
+        description: "CPU usage is above threshold"
+    
+    - alert: PodDown
+      expr: absent(kube_pod_status_phase{pod=~"gitops-app.*", phase="Running"})
+
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Pod is not running"
+        description: "a pod is down"
