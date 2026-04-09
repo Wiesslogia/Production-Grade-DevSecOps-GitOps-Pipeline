@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: alertmanager-monitoring-kube-prometheus-alertmanager
+type: Opaque
+stringData:
+  alertmanager.yaml: |
+    global:
+      resolve_timeout: 5m
+
+    route:
+      receiver: 'slack-notifications'
+
+    receivers:
+    - name: 'slack-notifications'
+      slack_configs:
+      - api_url: 'REPLACE_WITH_WEBHOOK'
+            
+        channel: '#alerts'
+        send_resolved: true
