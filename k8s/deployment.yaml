@@ -22,3 +22,11 @@ spec:                                 # actual instruction starts here
         imagePullPolicy: Always       # use local image
         ports:                        # port to run app
         - containerPort: 8080
+
+      resources:
+        requests:
+          cpu: "5m"
+          memory: "20Mi"
+        limits:
+          cpu: "15m"
+          memory: "25Mi"
