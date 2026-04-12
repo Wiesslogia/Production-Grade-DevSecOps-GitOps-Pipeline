@@ -1,5 +1,6 @@
 <div><h1 align="centre"> Production-Grade DevSecOps GitOps Pipeline</h1></div>
----
+
+
 ## 📌 Overview
 
 This project demonstrates a **complete production-grade DevSecOps pipeline** using modern cloud-native tools.
@@ -12,9 +13,7 @@ It automates the entire lifecycle:
 
 ## 🧠 Architecture
 
-![Artitecture](<img width="451" height="961" alt="image" src="https://github.com/user-attachments/assets/347f0f9e-011b-45fc-9fd1-e710d900b068" />
-)
-
+<img width="451" height="961" alt="GitOps1" src="https://github.com/user-attachments/assets/84e4a7c5-63dd-4d59-a120-75fce44b330f" />
 
 ---
 
