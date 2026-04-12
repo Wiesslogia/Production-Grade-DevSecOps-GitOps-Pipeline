@@ -1,156 +1,165 @@
-<div><h1 align="centre"> Production-Grade DevSecOps GitOps Pipeline</h1></div>
+<h1 align="center">🚀 Production-Grade DevSecOps GitOps Pipeline</h1>
 
+<p align="center">
+  <b>Code → Build → Scan → Deploy → Observe → Alert → Scale</b>
+</p>
 
-## 📌 Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/CI-GitHub%20Actions-181717?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI: GitHub Actions" />
+  <img src="https://img.shields.io/badge/CD-ArgoCD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white" alt="CD: ArgoCD" />
+  <img src="https://img.shields.io/badge/Kubernetes-Orchestration-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes" />
+  <img src="https://img.shields.io/badge/Security-Trivy-1904DA?style=for-the-badge&logo=aqua&logoColor=white" alt="Security: Trivy" />
+  <img src="https://img.shields.io/badge/Observability-Prometheus%20%2B%20Grafana-E6522C?style=for-the-badge&logo=prometheus&logoColor=white" alt="Observability" />
+</p>
 
-This project demonstrates a **complete production-grade DevSecOps pipeline** using modern cloud-native tools.
+---
 
-It automates the entire lifecycle:
+## ✨ Overview
 
-> Code → Build → Security Scan → Deploy → Monitor → Alert → Scale
+This project demonstrates an end-to-end, production-style DevSecOps workflow using cloud-native tooling and GitOps principles.
+
+From commit to cluster, every stage is automated:
+
+> Developer Push → GitHub Actions CI → Trivy Scan → Docker Registry → ArgoCD Sync → Kubernetes Deploy → Monitoring + Alerts + HPA
 
 ---
 
 ## 🧠 Architecture
 
-<img width="451" height="961" alt="GitOps1" src="https://github.com/user-attachments/assets/84e4a7c5-63dd-4d59-a120-75fce44b330f" />
+<p align="center">
+  <img width="451" height="961" alt="GitOps1" src="https://github.com/user-attachments/assets/10179323-e54d-4013-aa55-0631d6ad191e" />
+
+</p>
 
 ---
 
-## ⚙️ Tech Stack
+## 🧰 Tech Stack
 
-* CI: GitHub Actions
-* CD (GitOps): ArgoCD
-* Containerization: Docker
-* Orchestration: Kubernetes
-* Packaging: Helm
-* Monitoring: Prometheus + Grafana
-* Alerts: Alertmanager + Slack
-* Security: Trivy (Image Scanning)
-
----
-
-## 🔄 CI/CD Pipeline Flow
-
-1. Developer pushes code to GitHub
-2. GitHub Actions:
-
-   * Builds Docker image
-   * Scans image using Trivy
-   * Pushes image to Docker Hub
-3. ArgoCD:
-
-   * Detects changes from Git
-   * Deploys using Helm
-4. Kubernetes:
-
-   * Runs application
-   * Auto-scales using HPA
+| Category | Tools |
+| --- | --- |
+| CI | GitHub Actions |
+| CD (GitOps) | ArgoCD |
+| Containerization | Docker |
+| Orchestration | Kubernetes |
+| Packaging | Helm |
+| Monitoring | Prometheus, Grafana |
+| Alerting | Alertmanager, Slack |
+| Security | Trivy |
 
 ---
 
-## 🔐 Security (DevSecOps)
+## 🔄 Pipeline Flow
 
-* Integrated Trivy for vulnerability scanning
-* Pipeline blocks/flags critical vulnerabilities
-* Secure container deployment workflow
+1. Developer pushes code to GitHub.
+2. GitHub Actions pipeline runs:
+   - Build Docker image.
+   - Scan image with Trivy.
+   - Push secure image to Docker Hub.
+3. ArgoCD detects Git changes and syncs manifests.
+4. Kubernetes deploys the app and scales using HPA.
 
 ---
 
-## 📊 Monitoring & Alerts
+## 🔐 Security Highlights
 
-* Prometheus collects metrics
-* Grafana visualizes dashboards
-* Alertmanager sends alerts to Slack
+- Integrated Trivy image scanning in CI.
+- Critical vulnerabilities can be blocked/flagged before deployment.
+- Safer release pipeline with shift-left security.
+
+---
+
+## 📊 Monitoring and Alerts
+
+- Prometheus scrapes application and cluster metrics.
+- Grafana provides real-time visualization dashboards.
+- Alertmanager sends notifications to Slack.
 
 ---
 
 ## ⚙️ Auto Scaling
 
-* Implemented Horizontal Pod Autoscaler (HPA)
-* Scales pods based on CPU usage
+- Horizontal Pod Autoscaler is configured.
+- Pods scale based on CPU utilization to handle traffic bursts efficiently.
 
 ---
 
 ## 📁 Project Structure
 
-```
-gitops-project/
-│
-├── app/
-├── helm-chart/
-│   ├── templates/
-│   │   ├── deployment.yaml
-│   │   ├── service.yaml
-│   │   ├── hpa.yaml
-│   │   ├── servicemonitor.yaml
-│   │   └── prometheus-rule.yaml
-│   └── values.yaml
-│
-├── argocd/
-│   └── application.yaml
-│
-├── monitoring/
-│   └── alertmanager-config.yaml
-│
-├── .github/workflows/
-│   └── ci.yaml
-│
-└── README.md
+```text
+GitOps-Based-Deployment-System/
+|-- app/
+|   |-- app.js
+|   |-- Dockerfile
+|   `-- package.json
+|-- argocd/
+|   `-- application.yaml
+|-- gitops-chart/
+|   |-- Chart.yaml
+|   |-- values.yaml
+|   `-- templates/
+|       |-- _helpers.tpl
+|       |-- deployment.yaml
+|       |-- service.yaml
+|       |-- hpa.yaml
+|       |-- servicemonitor.yaml
+|       |-- alert-rule.yaml
+|       |-- serviceaccount.yaml
+|       `-- tests/
+|-- monitoring/
+|   `-- alertmanager-config.yaml
+`-- README.md
 ```
 
 ---
 
-## 🚀 Features
+## ✅ Key Features
 
-* ✅ Fully automated CI/CD pipeline
-* ✅ GitOps-based deployment
-* ✅ Security scanning with Trivy
-* ✅ Real-time monitoring & dashboards
-* ✅ Slack alerting system
-* ✅ Auto-scaling with HPA
-* ✅ Helm-based deployment
+- Fully automated CI/CD pipeline
+- GitOps-based continuous deployment
+- Security scanning with Trivy
+- Real-time observability stack
+- Slack-based incident alerting
+- Kubernetes HPA auto-scaling
+- Helm-based deployment templates
 
 ---
 
-## 🧪 How to Run
+## 🧪 Quick Start
 
 ```bash
-# Start cluster
+# 1) Start local cluster
 minikube start
 
-# Apply ArgoCD app
+# 2) Deploy ArgoCD application
 kubectl apply -f argocd/application.yaml
 
-# Check pods
-kubectl get pods
+# 3) Verify running workloads
+kubectl get pods -A
 ```
 
 ---
 
-## 🎯 Key Learnings
+## 🎯 What You Learn
 
-* End-to-end DevOps pipeline design
-* GitOps workflow using ArgoCD
-* Kubernetes deployment & scaling
-* Monitoring and alerting setup
-* DevSecOps integration
+- Practical CI/CD architecture for real projects
+- GitOps operations with ArgoCD
+- Kubernetes deployment, scaling, and reliability basics
+- Security-first DevOps workflow integration
+- Monitoring and incident alerting fundamentals
 
 ---
 
-## 📌 Future Improvements
+## 🔮 Future Enhancements
 
-* Multi-environment (dev/staging/prod)
-* Ingress with domain
-* Canary deployments
-* AI-based anomaly detection
+- Multi-environment delivery (dev/stage/prod)
+- Ingress and domain-based routing
+- Progressive delivery (canary/blue-green)
+- AI-assisted anomaly detection for observability
 
 ---
 
 ## 👨‍💻 Author
 
 Gotam Kumar Prajapati
-
----
 
 
