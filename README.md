@@ -1,190 +1,157 @@
-<div align="center"> <h1>🚀 GitOps-Based CI/CD Pipeline with Kubernetes</h></div>
+<div><h1 align="centre"> Production-Grade DevSecOps GitOps Pipeline</h1></div>
+---
+## 📌 Overview
 
-## 📌 Project Overview
+This project demonstrates a **complete production-grade DevSecOps pipeline** using modern cloud-native tools.
 
-This project demonstrates a **complete DevOps pipeline** using GitOps principles. It automates application deployment using Kubernetes and integrates CI/CD, monitoring, and containerization.
+It automates the entire lifecycle:
+
+> Code → Build → Security Scan → Deploy → Monitor → Alert → Scale
 
 ---
 
 ## 🧠 Architecture
-<div align="center">
 
-Developer  
-↓  
-GitHub  
-↓  
-CI (GitHub Actions)  
-↓  
-Docker Hub  
-↓  
-ArgoCD  
-↓  
-Kubernetes  
-↓  
-Application  
-↓  
-Prometheus  
-↓  
-Grafana  
+![Artitecture](<img width="451" height="961" alt="image" src="https://github.com/user-attachments/assets/347f0f9e-011b-45fc-9fd1-e710d900b068" />
+)
 
-</div>
 
 ---
 
-## 🛠️ Tech Stack
+## ⚙️ Tech Stack
 
-* Docker (Containerization)
-* Kubernetes (Container Orchestration)
-* ArgoCD (GitOps Deployment)
-* GitHub Actions (CI Pipeline)
-* Prometheus (Monitoring)
-* Grafana (Visualization)
-* Node.js / Express (Application)
-
----
-
-## ⚙️ Features
-
-- ✅ Automated CI/CD Pipeline 
-- ✅ GitOps-based deployment using ArgoCD
-- ✅ Dockerized application
-- ✅ Kubernetes deployment with scaling
-- ✅ Real-time monitoring with Prometheus
-- ✅ Grafana dashboards for visualization
-- ✅ Custom metrics using Prometheus client
+* CI: GitHub Actions
+* CD (GitOps): ArgoCD
+* Containerization: Docker
+* Orchestration: Kubernetes
+* Packaging: Helm
+* Monitoring: Prometheus + Grafana
+* Alerts: Alertmanager + Slack
+* Security: Trivy (Image Scanning)
 
 ---
 
-## 🔄 CI/CD Workflow
+## 🔄 CI/CD Pipeline Flow
 
 1. Developer pushes code to GitHub
 2. GitHub Actions:
 
    * Builds Docker image
+   * Scans image using Trivy
    * Pushes image to Docker Hub
 3. ArgoCD:
 
-   * Detects changes in Git repo
-   * Automatically deploys to Kubernetes
-4. Prometheus:
+   * Detects changes from Git
+   * Deploys using Helm
+4. Kubernetes:
 
-   * Collects application & cluster metrics
-5. Grafana:
-
-   * Displays dashboards
+   * Runs application
+   * Auto-scales using HPA
 
 ---
 
-## 🐳 Docker
+## 🔐 Security (DevSecOps)
 
-Build image locally:
+* Integrated Trivy for vulnerability scanning
+* Pipeline blocks/flags critical vulnerabilities
+* Secure container deployment workflow
+
+---
+
+## 📊 Monitoring & Alerts
+
+* Prometheus collects metrics
+* Grafana visualizes dashboards
+* Alertmanager sends alerts to Slack
+
+---
+
+## ⚙️ Auto Scaling
+
+* Implemented Horizontal Pod Autoscaler (HPA)
+* Scales pods based on CPU usage
+
+---
+
+## 📁 Project Structure
 
 ```
-docker build -t <your-docker-username>/gitops-app:latest .
-```
-
-Run container:
-
-```
-docker run -p 3000:3000 <your-docker-username>/gitops-app:latest
+gitops-project/
+│
+├── app/
+├── helm-chart/
+│   ├── templates/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── hpa.yaml
+│   │   ├── servicemonitor.yaml
+│   │   └── prometheus-rule.yaml
+│   └── values.yaml
+│
+├── argocd/
+│   └── application.yaml
+│
+├── monitoring/
+│   └── alertmanager-config.yaml
+│
+├── .github/workflows/
+│   └── ci.yaml
+│
+└── README.md
 ```
 
 ---
 
-## ☸️ Kubernetes Deployment
+## 🚀 Features
 
-Apply configurations:
+* ✅ Fully automated CI/CD pipeline
+* ✅ GitOps-based deployment
+* ✅ Security scanning with Trivy
+* ✅ Real-time monitoring & dashboards
+* ✅ Slack alerting system
+* ✅ Auto-scaling with HPA
+* ✅ Helm-based deployment
 
-```
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-```
+---
 
-Access app:
+## 🧪 How to Run
 
-```
-minikube service gitops-service
+```bash
+# Start cluster
+minikube start
+
+# Apply ArgoCD app
+kubectl apply -f argocd/application.yaml
+
+# Check pods
+kubectl get pods
 ```
 
 ---
 
-## 🔁 GitOps (ArgoCD)
+## 🎯 Key Learnings
 
-* Connect GitHub repository to ArgoCD
-* ArgoCD automatically syncs changes
-* Ensures desired state = actual state
-
----
-
-## 📊 Monitoring
-
-### Prometheus
-
-* Collects system & application metrics
-* Scrapes `/metrics` endpoint
-
-### Grafana
-
-* Visualizes CPU, memory, and request metrics
-* Provides dashboards for Kubernetes workloads
-
----
-
-## 📈 Metrics Endpoint
-
-Access:
-
-```
-http://localhost:3000/metrics
-```
-
-Includes:
-
-* CPU usage
-* Memory usage
-* HTTP request count
-
----
-
-## 🧪 Testing
-
-Scale application:
-
-```
-kubectl scale deployment gitops-app --replicas=5
-```
-
-Observe changes in Grafana dashboards.
-
----
-
-## 🚀 Future Improvements
-
-* 🔐 Add security scanning (Trivy)
-* 🛡️ Policy enforcement (OPA/Gatekeeper)
-* 🤖 AI-based anomaly detection
-* ☁️ Deploy on AWS/GCP
-* 🔄 Multi-environment (dev/staging/prod)
-
----
-
-## 🎯 Learning Outcomes
-
-* End-to-end CI/CD pipeline implementation
-* Hands-on Kubernetes deployment
+* End-to-end DevOps pipeline design
 * GitOps workflow using ArgoCD
-* Monitoring and observability
-* Real-world DevOps practices
+* Kubernetes deployment & scaling
+* Monitoring and alerting setup
+* DevSecOps integration
 
 ---
 
-## 📌 Author
+## 📌 Future Improvements
+
+* Multi-environment (dev/staging/prod)
+* Ingress with domain
+* Canary deployments
+* AI-based anomaly detection
+
+---
+
+## 👨‍💻 Author
 
 Gotam Kumar Prajapati
-GitHub: https://github.com/wiesslogia
 
 ---
 
-## ⭐ If you like this project
 
-Give it a star ⭐ on GitHub!
