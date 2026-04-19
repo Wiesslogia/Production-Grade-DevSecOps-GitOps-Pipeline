@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops-app
+  name: gitops-dev
   namespace: argocd
 
 spec:
@@ -11,10 +11,13 @@ spec:
     repoURL: https://github.com/Wiesslogia/Production-Grade-DevSecOps-GitOps-Pipeline.git
     targetRevision: main
     path: gitops-chart   
+    helm:
+      valueFiles:
+        - values-dev.yaml
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: dev
 
   syncPolicy:
     automated:
