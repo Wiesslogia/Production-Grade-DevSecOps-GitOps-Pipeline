@@ -1,13 +1,21 @@
-{{- if eq .Values.deploymentType "deployment" }}
-apiVersion: apps/v1
+{{- if eq .Values.deploymentType "rollout-bluegreen"}}
 
-kind: Deployment  
+apiVersion: argoproj.io/v1alpha1
+
+kind: Rollout
 
 metadata:        
-  name: {{ .Release.Name }}-deployment   
+  name: {{ .Release.Name }}-bluegreen
 
 spec:                
-  replicas: {{ .Values.replicaCount }}    
+  replicas: {{ .Values.replicaCount }}  
+
+  strategy:
+    blueGreen:
+      activeService: gitops-active
+      previewService: gitops-preview
+      autoPromotionEnabled: false
+
   selector:          
     matchLabels:  
       app: {{ .Release.Name }}   
