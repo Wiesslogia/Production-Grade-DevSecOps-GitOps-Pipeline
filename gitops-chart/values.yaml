@@ -15,7 +15,7 @@ fullnameOverride: "gitops-app"
 
 serviceAccount: {}
 
-serviceMonitor:
+ServiceMonitor:
   enabled: false
 
 podAnnotations: {}
