@@ -1,5 +1,10 @@
 replicaCount: 1
 
+image:
+  repository: wiesslogia/gitops:12f0b05921cd28fcbbae91b914e29f441de8fabe
+  pullPolicy: IfNotPresent
+  tag: ""
+
 resources: 
   requests:
     cpu: "10m"
