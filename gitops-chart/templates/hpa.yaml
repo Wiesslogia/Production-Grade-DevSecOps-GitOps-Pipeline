@@ -5,8 +5,8 @@ metadata:
 spec:
   scaleTargetRef: 
     apiVersion: apps/v1
-    kind: Deployment
-    name: gitops-app
+    kind: Rollout
+    name: gitops-rollout
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
