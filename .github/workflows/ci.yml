@@ -42,7 +42,8 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME}}:${{ env.IMAGE_TAG }}
 
       - name: update image in values
-        run: sed -i "s| tag: .*|tag: ${{ env.IMAGE_TAG}}|g" gitops-chart/values-dev.yaml
+        run: |
+          sed -i 's|^[[:space:]]*tag:[[:space:]]*.*|  tag: "${{ env.IMAGE_TAG }}"|g' gitops-chart/values-dev.yaml
 
       - name: Commit upated values file 
         run: |
