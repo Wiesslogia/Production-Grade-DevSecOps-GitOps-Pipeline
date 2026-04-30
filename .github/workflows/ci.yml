@@ -47,6 +47,8 @@ jobs:
 
       - name: Commit upated values file 
         run: |
+          git config --global user.email "gautamprajapati799@gmail.com"
+          git config --global user.name "Wiesslogia"
           git add gitops-chart/values-dev.yaml
           git commit -m "updated dev image tag"
           git push
