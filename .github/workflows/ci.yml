@@ -12,10 +12,6 @@ env:
   IMAGE_NAME: gitops
   IMAGE_TAG: ${{ github.sha }}
 
-permissions:
-  contents: write
-
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
