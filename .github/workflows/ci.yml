@@ -9,6 +9,9 @@ env:
   IMAGE_NAME: gitops
   IMAGE_TAG: ${{ github.sha }}
 
+permissions:
+  contents: write
+
 
 jobs:
   build-and-push:
@@ -47,6 +50,8 @@ jobs:
 
       - name: Commit upated values file 
         run: |
+          git config --global user.email "gautamprajapati799@gmail.com"
+          git config --global user.name "wiesslogia"
           git add gitops-chart/values-dev.yaml
           git commit -m "updated dev image tag"
           git push
