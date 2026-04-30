@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: wiesslogia/gitops
   pullPolicy: IfNotPresent
-  tag: "12f0b05921cd28fcbbae91b914e29f441de8fabe"
+  tag: "a1ad770ff3ef78dab209fe882071f50e5e763c70"
 
 resources: 
   requests:
