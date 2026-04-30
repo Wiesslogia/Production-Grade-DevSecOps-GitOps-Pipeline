@@ -40,3 +40,12 @@ jobs:
 
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME}}:${{ env.IMAGE_TAG }}
+
+      - name: update image in values
+        run: sed -i "s| image: .*|image: ${{IMAGE_NAME}}:${{ env.IMAGE_TAG}}|g " helm-chart/values.dev.toYaml
+
+      - name: Commit upated values file 
+        run: |
+          git add helm-chart/values-dev.yaml
+          git commit -m "updated dev image tag"
+          git push
