@@ -1,3 +1,5 @@
+deploymentType: rollout-bluegreen
+
 replicaCount: 3
 
 image:

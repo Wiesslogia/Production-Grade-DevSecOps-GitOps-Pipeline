@@ -161,5 +161,3 @@ kubectl get pods -A
 ## 👨‍💻 Author
 
 Gotam Kumar Prajapati
-
-

@@ -1,6 +1,6 @@
-deploymentType: deployment
+deploymentType: rollout
 
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: wiesslogia/gitops
